@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,10 @@
 		D270A8FA24791EAD00FE4686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D270A8F824791EAD00FE4686 /* LaunchScreen.storyboard */; };
 		D270A90524791EAD00FE4686 /* GitHubRepoList_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A90424791EAD00FE4686 /* GitHubRepoList_SwiftUITests.swift */; };
 		D270A91024791EAD00FE4686 /* GitHubRepoList_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A90F24791EAD00FE4686 /* GitHubRepoList_SwiftUIUITests.swift */; };
+		D270A9202479204A00FE4686 /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A91F2479204A00FE4686 /* RepoListViewModel.swift */; };
+		D270A923247926CA00FE4686 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D270A922247926CA00FE4686 /* Alamofire */; };
+		D270A92624793D3000FE4686 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = D270A92524793D3000FE4686 /* SwiftyJSON */; };
+		D270A9292479562B00FE4686 /* RepoListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D270A9282479562B00FE4686 /* RepoListRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,8 @@
 		D270A90B24791EAD00FE4686 /* GitHubRepoList-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHubRepoList-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270A90F24791EAD00FE4686 /* GitHubRepoList_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepoList_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		D270A91124791EAD00FE4686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D270A91F2479204A00FE4686 /* RepoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
+		D270A9282479562B00FE4686 /* RepoListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D270A92624793D3000FE4686 /* SwiftyJSON in Frameworks */,
+				D270A923247926CA00FE4686 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,9 +109,11 @@
 		D270A8E924791EAA00FE4686 /* GitHubRepoList-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				D270A9272479561100FE4686 /* Repository */,
+				D270A91E2479202200FE4686 /* ViewModel */,
+				D270A91D2479200200FE4686 /* View */,
 				D270A8EA24791EAA00FE4686 /* AppDelegate.swift */,
 				D270A8EC24791EAA00FE4686 /* SceneDelegate.swift */,
-				D270A8F124791EAA00FE4686 /* ContentView.swift */,
 				D270A8F324791EAD00FE4686 /* Assets.xcassets */,
 				D270A8F824791EAD00FE4686 /* LaunchScreen.storyboard */,
 				D270A8FB24791EAD00FE4686 /* Info.plist */,
@@ -139,6 +149,30 @@
 			path = "GitHubRepoList-SwiftUIUITests";
 			sourceTree = "<group>";
 		};
+		D270A91D2479200200FE4686 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D270A8F124791EAA00FE4686 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D270A91E2479202200FE4686 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D270A91F2479204A00FE4686 /* RepoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D270A9272479561100FE4686 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D270A9282479562B00FE4686 /* RepoListRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +189,10 @@
 			dependencies = (
 			);
 			name = "GitHubRepoList-SwiftUI";
+			packageProductDependencies = (
+				D270A922247926CA00FE4686 /* Alamofire */,
+				D270A92524793D3000FE4686 /* SwiftyJSON */,
+			);
 			productName = "GitHubRepoList-SwiftUI";
 			productReference = D270A8E724791EAA00FE4686 /* GitHubRepoList-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +265,10 @@
 				Base,
 			);
 			mainGroup = D270A8DE24791EAA00FE4686;
+			packageReferences = (
+				D270A921247926CA00FE4686 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D270A92424793D3000FE4686 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = D270A8E824791EAA00FE4686 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,6 +315,8 @@
 				D270A8EB24791EAA00FE4686 /* AppDelegate.swift in Sources */,
 				D270A8ED24791EAA00FE4686 /* SceneDelegate.swift in Sources */,
 				D270A8F224791EAA00FE4686 /* ContentView.swift in Sources */,
+				D270A9292479562B00FE4686 /* RepoListRepository.swift in Sources */,
+				D270A9202479204A00FE4686 /* RepoListViewModel.swift in Sources */,
 				D270A8F024791EAA00FE4686 /* GitHubRepoList_SwiftUI.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +636,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D270A921247926CA00FE4686 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+		D270A92424793D3000FE4686 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D270A922247926CA00FE4686 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D270A921247926CA00FE4686 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D270A92524793D3000FE4686 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D270A92424793D3000FE4686 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		D270A8EE24791EAA00FE4686 /* GitHubRepoList_SwiftUI.xcdatamodeld */ = {

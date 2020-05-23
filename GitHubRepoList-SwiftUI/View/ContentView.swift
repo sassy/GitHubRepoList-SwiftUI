@@ -7,10 +7,18 @@
 //
 
 import SwiftUI
+import Combine
+
 
 struct ContentView: View {
+    @ObservedObject var observed = RepoListViewModel()
+    
     var body: some View {
-        Text("Hello, World!")
+        List {
+            ForEach(observed.repos, id: \.self) { section in
+                Text(section)
+            }
+        }.onAppear(perform: {self.observed.fetchRepos()})
     }
 }
 
